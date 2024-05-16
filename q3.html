@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Area of Triangle
+        </title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function getArea(){
+                var n1=parseFloat(document.getElementById("fnum").value);
+                var n2=parseFloat(document.getElementById("snum").value);
+                var n3=parseFloat(document.getElementById("tnum").value);
+                var s=(n1+n2+n3)/2;
+                var temp=s*(s-n1)*(s-n2)*(s-n3);
+                temp=Math.sqrt(temp);
+                document.getElementById("ans").value=temp;
+            }
+        </script>
+
+      <form>
+        <label for="fnum">First number:</label><br>
+        <input type="text" id="fnum" name="fnum"><br>
+        <label for="snum">Second number:</label><br>
+        <input type="text" id="snum" name="snum"><br>
+        <label for="tnum">Third number:</label><br>
+        <input type="text" id="tnum" name="tnum"><br>
+        <label for="ans">Area of Triangle is:</label><br>
+        <input type="text" id="ans" name="ans" readonly/>
+        <input type="button" value="Area" onclick="getArea()"/>
+        <br>
+      </form>
+    </body>
+</html>

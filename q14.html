@@ -1,0 +1,25 @@
+<script>
+  function CSVstring_to_Array(data, delimiter = ",") {
+    const titles = data.slice(0, data.indexOf("\n")).split(delimiter);
+    const titleValues = data.slice(data.indexOf("\n") + 1).split("\n");
+    const ansArray = titleValues.map(function (v) {
+      const values = v.split(delimiter);
+      const storeKeyValue = titles.reduce(function (obj, title, index) {
+        obj[title] = values[index];
+        return obj;
+      }, {});
+
+      return storeKeyValue;
+    });
+
+    return ansArray;
+  }
+
+  var inputString1 = "Name,Roll Number\nRohan,01\nAryan,02";
+  console.log(CSVstring_to_Array(inputString1));
+
+  var inputString2 = "Name;Roll Number\nRohan;01\nAryan;02";
+  console.log(CSVstring_to_Array(inputString2, ";"));
+</script>
+
+<!-- referencefrom gfg -->

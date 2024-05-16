@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        Array element
+    </head>
+    <body>
+        <script type="text/javascript">
+            function getArray(){
+            var index=parseInt(document.getElementById("s").value);
+            var arr= new Array(1,2,3,4,5,6);
+
+            document.write(arr[index] + "<br/>");  
+      
+        }
+        </script>
+
+      <form>
+        <label for="s">Index: </label><br>
+        <input type="text" id="s" name="s"><br>
+        <input type="button" value="Calculate" onclick="getArray()"/>
+        <br>
+      </form>
+    </body>
+</html>

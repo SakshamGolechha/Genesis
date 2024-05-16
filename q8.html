@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Object</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function compareEntries(emp, emp2) {
+    const entries1 = Object.entries(emp);
+    const entries2 = Object.entries(emp2);
+    return JSON.stringify(entries1) === JSON.stringify(entries2);
+}
+      var emp = new Object();
+      emp.id = 101;
+      emp.name = "Ravi Malik";
+      emp.salary = 50000;
+
+      var emp2 = new Object();
+      emp2.id = 101;
+      emp2.name = "Ravi Malik";
+      emp2.salary = 50000;
+
+      
+      document.write(compareEntries(emp,emp2));
+
+      // if(emp===emp2)document.write("true");
+      // else{
+      //   document.write("false");
+      // }
+    </script>
+  </body>
+</html>
+
+
+
+<!-- DOUBT -->

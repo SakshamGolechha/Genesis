@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       Digit to array
+    </head>
+    <body>
+        <script type="text/javascript">
+            function getArray(){
+            var num=parseInt(document.getElementById("s").value);
+            var arr= new Array();
+            while(num){
+                var newele=num%10;
+                num=Math.floor(num/10);
+                arr.push(newele);
+            }
+           arr=arr.reverse();
+           for(k=0;k<arr.length;k++){
+            document.write(arr[k] + "<br/>");  
+           }
+        }
+        </script>
+
+      <form>
+        <label for="s">Number: </label><br>
+        <input type="text" id="s" name="s"><br>
+        <input type="button" value="Calculate" onclick="getArray()"/>
+        <br>
+      </form>
+    </body>
+</html>

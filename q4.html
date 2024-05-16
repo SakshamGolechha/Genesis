@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Area of Triangle
+        </title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function getTemp1(){
+                var n1=parseFloat(document.getElementById("c").value);
+                    var temp=n1*9;
+                    temp=temp/5;
+                    temp=temp+32;
+                    document.getElementById("ans").value=temp;            
+            }
+            function getTemp2(){
+                var n2=parseFloat(document.getElementById("f").value);
+                    var temp=n2-32;
+                    temp=temp/1.8;
+                    document.getElementById("ans").value=temp;            
+            }
+        </script>
+
+      <form>
+        <label for="c">Temperature in C:</label><br>
+        <input type="text" id="c" name="c"><br>
+        <input type="button" value="Calculate" onclick="getTemp1()"/>
+        <label for="f">Temp in F:</label><br>
+        <input type="text" id="f" name="f"><br>
+        <input type="button" value="Calculate" onclick="getTemp2()"/>
+        <label for="ans">Converted Temp is:</label><br>
+        <input type="text" id="ans" name="ans" readonly/>
+        <br>
+      </form>
+    </body>
+</html>

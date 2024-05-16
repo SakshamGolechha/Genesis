@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    Array element
+  </head>
+  <body>
+    <script type="text/javascript">
+      function getArray() {
+        
+        const st = new Set();
+        var arr = new Array(1, 2, 3, 4, 5,5,6,6,7, 6);
+        var ans = new Array();
+        for (k = 0; k < arr.length; k++) {
+          if (st.has(arr[k])) {
+            ans.push(arr[k]);
+          } else {
+            st.add(arr[k]);
+          }
+        }
+
+        // we can use another set also
+
+        for (k = 0; k < ans.length; k++) {
+            document.write(ans[k] + "<br/>");
+        }
+      }
+    </script>
+    <form>
+      <input type="button" value="Calculate" onclick="getArray()" />
+      <br />
+    </form>
+  </body>
+</html>

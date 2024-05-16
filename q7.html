@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Area of Triangle
+        </title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function getString(){
+            var str=document.getElementById("s").value;
+            
+            var t="";
+            for(k=0;k<str.length;k++){
+                if(k==0 || k==str.length -1 ){
+                }
+                else{
+                    t+=str[k];
+                }
+            }
+            document.getElementById("ans").value=t;            
+            }
+        </script>
+
+      <form>
+        <label for="s">String: </label><br>
+        <input type="text" id="s" name="s"><br>
+        <input type="button" value="Calculate" onclick="getString()"/><br>
+        <label for="ans">Converted String is:</label><br>
+        <input type="text" id="ans" name="ans" readonly/>
+        <br>
+      </form>
+    </body>
+</html>

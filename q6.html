@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function getString(){
+            var index=4;
+            var str=document.getElementById("s").value;
+            
+            var t="";
+            for(k=4;k<=9;k++){
+                    t+=str[k];                
+            }
+            if(t=="Script"){
+                var newt="";
+                for(k=0;k<4;k++){
+                    newt+=str[k];
+                }
+                for(k=10;k<str.length;k++){
+                    newt+=str[k];
+                }
+                document.getElementById("ans").value=newt;  
+            }
+            else{
+            document.getElementById("ans").value=str;  
+            }          
+            }
+        </script>
+
+      <form>
+        <label for="s">String: </label><br>
+        <input type="text" id="s" name="s"><br>
+        <input type="button" value="Calculate" onclick="getString()"/>
+        <label for="ans">Converted String is:</label><br>
+        <input type="text" id="ans" name="ans" readonly/>
+        <br>
+      </form>
+    </body>
+</html>

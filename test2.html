@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <link rel="icon" type="image/x-icon" href="/images/logo.png">
+        <style>
+            body {
+                background-color: greenyellow;
+                font-family: Arial, sans-serif;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                height: 100vh;
+            }
+            .container {
+                background-color: whitesmoke;
+                font-family: Arial, sans-serif;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 300px;
+                text-align: center;
+            }
+            h2 {
+                margin-bottom: 20px;
+            }
+            input[type="text"], input[type="password"] {
+                width: calc(100% - 22px);
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            button {
+                padding: 10px 20px;
+                margin-top: 10px;
+                background-color: greenyellow;
+                color:black;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: rgb(55, 245, 55);
+            }
+            .link {
+                margin-top: 15px;
+            }
+            .link a {
+                color: #007BFF;
+                text-decoration: none;
+            }
+            .link a:hover {
+                text-decoration: underline;
+            }
+            img{
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 5px;
+                width: 250px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <body>
+            <div class="container" id="login-form">
+                <img src="/images/img.jpg" alt="genesis team">
+                <h2>Login</h2>
+                <form>
+                    <input type="text" placeholder="Username" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <div class="link">
+                    <a href="#" onclick="showRegistrationForm()">Don't have an account? Register</a>
+                </div>
+            </div>
+
+            <div class="container" id="registration-form" style="display: none">
+                <img src="/images/img2.jpg" alt="genesis team">
+                <h2>Register</h2>
+                <form>
+                    <input type="text" placeholder="Username" required>
+                    <input type="password" id="pass" placeholder="Password" required>
+                    <input type="password" id="retype_pass" placeholder="Retype password" required>
+                    <button type="submit" id="pass_button" onclick="validate()">Login</button>
+                </form>
+                <div class="link">
+                    <a href="#" onclick="showLoginForm()">Already have an account? Login</a>
+                </div>
+            </div>
+            <script>
+                function validate(){
+                    var str=document.getElementById("pass").value;
+                    var str2=document.getElementById("retype_pass").value;
+                    var flag=0;
+                    for(k=0;k<str.length;k++){
+                        if(str[k]=='@' || str[k]=='!'|| str[k]=='*'|| str[k]==','|| str[k]=='.'){
+                            flag=1;
+                        }
+                    }
+                    if(str.length>7 && flag==1 && str==str2 ){
+                        showLoginForm();                  
+                    }
+                    else{
+                        alert("Type Password in correct form!");
+                    }
+                }
+                
+                function showRegistrationForm(){
+                    document.getElementById("login-form").style.display='none';
+                    document.getElementById("registration-form").style.display='block';
+                }
+
+                function showLoginForm(){
+                    document.getElementById("login-form").style.display='block';
+                    document.getElementById("registration-form").style.display='none';
+                }
+            </script>
+    </body>
+</html>

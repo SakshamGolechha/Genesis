@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style2.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="dot2">
+        <div class="dot">
+          <div class="container2" id="hrs"></div>
+          <div class="container3">Hours</div>
+        </div>
+      </div>
+
+      <div class="dot2">
+        <div class="dot">
+          <div class="container2" id="mins"></div>
+          <div class="container3">Minutes</div>
+        </div>
+      </div>
+
+      <div class="dot2">
+        <div class="dot">
+          <div class="container2" id="secs"></div>
+          <div class="container3">Seconds</div>
+        </div>
+      </div>
+      <div
+        class="ap"
+        id="ampm"
+        style="font-size: 35px; font-family: 'Courier New', Courier, monospace"
+      ></div>
+    </div>
+
+    <script>
+      window.onload = function () {
+        setInterval(function () {
+          var date = new Date();
+          var hours = date.getHours();
+          var min = date.getMinutes();
+          var sec = date.getSeconds();
+          var am = hours >= 12 ? "PM" : "AM";
+
+          hours = hours % 12;
+          hours = hours ? hours : 12; // the hour '0' should be '12'
+
+          document.getElementById("hrs").innerHTML = 
+          hours < 10 ? "0" + hours : hours;
+          document.getElementById("mins").innerHTML =
+            min < 10 ? "0" + min : min;
+          document.getElementById("secs").innerHTML =
+            sec < 10 ? "0" + sec : sec;
+          document.getElementById("ampm").innerHTML = am;
+        }, 1000);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bouncing Ball with JavaScript</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        overflow: hidden;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="gameCanvas"></canvas>
+    <script>
+      var canvas = document.getElementById("gameCanvas");
+      var ctx = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      var cx;
+      var cy;
+      var vx = 0;
+      var vy = 0;
+      var radius = 10;
+      var gravity = 0.075;
+      var damping = 0.75;
+      var arr=[];
+
+      function circle() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        requestAnimationFrame(circle);
+
+        if (cx + radius >= canvas.width) {
+          vx = -vx * damping;
+          console.log(this);
+          cx = canvas.width - radius;
+        } else if (cx - radius <= 0) {
+          vx = -vx * damping;
+          cx = radius;
+        }
+
+        if (cy + radius >= canvas.height) {
+          vy = -vy * damping;
+          cy = canvas.height - radius;
+          vx *= damping;
+        } else if (cy - radius <= 0) {
+          vy = -vy * damping;
+          cy = radius;
+        }
+
+        vy += gravity;
+        cx += vx;
+        cy += vy;
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, 2 * Math.PI);
+        ctx.fillStyle = "black";
+        ctx.fill();
+      }
+
+      console.log('++++++++++++++++++++'+this);
+
+      function handleMouseDown(e) {
+        cx = e.clientX;
+        cy = e.clientY;
+        if (cx >= window.innerWidth / 2) {
+          vx = Math.random()%3;
+        } else {
+          vx = -Math.random()%3;
+        }
+      }
+
+      canvas.addEventListener("mousedown", handleMouseDown);
+      circle();
+    </script>
+  </body>
+</html>

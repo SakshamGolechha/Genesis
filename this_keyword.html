@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Today's Date</title>
+</head>
+
+<body>
+<script>
+    
+const obj={
+    myFunction: function(){
+        console.log(this);
+    },
+    myFunctionn : () => {
+        console.log(this);
+    },
+};
+obj.myFunction();
+obj.myFunctionn();
+
+function add1(a,b){
+    var res=a+b;
+    return res;
+}
+console.log(add1(2,3));
+
+const add2 = (a,b) =>{
+    return a+b;
+}
+console.log(add2(2,4));
+</script>
+</body>
+
+</html>

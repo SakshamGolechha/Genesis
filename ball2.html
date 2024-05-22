@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bouncing Ball with JavaScript</title>
+    <style>
+        body,
+        html {
+          margin: 0;
+          overflow: hidden;
+          height: 100%;
+        }
+      </style>
+  </head>
+  <body>
+    <canvas id="gameCanvas"></canvas>
+    <script>
+      var canvas = document.getElementById("gameCanvas");
+      var ctx = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      var radius = 10;
+      var gravity = 0.019;
+      var damping = 0.65;
+      var arr = [];
+
+      function Ball(x, y, vx, vy, col) {
+        this.cx = x;
+        this.cy = y;
+        this.vx = vx;
+        this.vy = vy;
+        this.colo=col;
+
+
+
+        this.update = function () {
+          if (this.cx + radius >= canvas.width) {
+            this.vx = -this.vx * damping;
+            this.cx = canvas.width - radius;
+          } else if (this.cx - radius <= 0) {
+            this.vx = -this.vx * damping;
+            this.cx = radius;
+          }
+
+          if (this.cy + radius >= canvas.height) {
+            this.vy = -this.vy * damping;
+            this.cy = canvas.height - radius;
+            this.vx *= damping;
+          } else if (this.cy - radius <= 0) {
+            this.vy = -this.vy * damping;
+            this.cy = radius;
+          }
+
+          this.vy += gravity;
+          this.cx += this.vx;
+          this.cy += this.vy;
+        };
+
+        this.draw = function (ctx) {
+          ctx.beginPath();
+          ctx.arc(this.cx, this.cy, radius, 0, 2 * Math.PI);
+          ctx.fillStyle = '#'+this.colo;
+          ctx.fill();
+        };
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i of arr) {
+          i.update();
+          i.draw(ctx);
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      function handleMouseDown(e) {
+        let cx = e.clientX;
+        let cy = e.clientY;
+        let vy = Math.random() * 4 - 2;
+        let vx = Math.random() * 4 - 2;
+        let col = Math.floor(Math.random()*16777215).toString(16);
+        let newarr = new Ball(cx, cy, vx, vy,col);
+        arr.push(newarr);
+      }
+
+      canvas.addEventListener("mousedown", handleMouseDown);
+      animate();
+    </script>
+  </body>
+</html>
